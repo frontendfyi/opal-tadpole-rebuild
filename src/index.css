@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .wrapper {
+    --col-width: 130px;
+
+    @apply grid w-full gap-2 md:gap-4;
+    grid-template-columns:
+      [full-start]
+      minmax(0, 100%)
+      [wide-start]
+      repeat(2, minmax(0, var(--col-width)))
+      [narrow-start]
+      repeat(8, minmax(0, var(--col-width)))
+      [narrow-end]
+      repeat(2, minmax(0, var(--col-width)))
+      [wide-end]
+      minmax(0, 100%)
+      [full-end];
+  }
+
+  .wrapper > * {
+    grid-column: wide;
+  }
+
+  .wrapper > .full-bleed {
+    grid-column: full;
+  }
+
+  @media (min-width: theme("screens.md")) {
+    .wrapper > * {
+      grid-column: narrow;
+    }
+  }
+
+  @keyframes fill-text {
+    to {
+      background-position-x: 0em, 0;
+    }
+  }
+
+  @keyframes parallax-movement {
+    to {
+      transform: translateY(var(--movement));
+    }
+  }
+}
+
+@layer components {
+  .reveal-text {
+    --faded-color: #ccc;
+    --higlighted-color: #111;
+    background-image: linear-gradient(
+        to right,
+        var(--higlighted-color),
+        var(--higlighted-color)
+      ),
+      linear-gradient(to right, var(--faded-color), var(--faded-color));
+    background-clip: text;
+    background-position-x: -100em, 0;
+    background-repeat: no-repeat;
+    color: transparent;
+    display: inline;
+    animation: fill-text linear both;
+    animation-timeline: --reveal-wrapper;
+    animation-range: entry 200% cover 80%;
+  }
+
+  .parallax-image {
+    transform: translateY(0px);
+    animation: parallax-movement linear both;
+    animation-timeline: --parallax-wrapper;
+    animation-range: entry 25% cover 80%;
+  }
+}
