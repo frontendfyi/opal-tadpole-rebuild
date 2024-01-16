@@ -53,7 +53,7 @@ const ParallaxImage = ({
 function App() {
   return (
     <main className="wrapper">
-      <div className="full-bleed relative z-10 flex h-screen items-center bg-zinc-800 bg-[url(/hero-tadpole.webp)] bg-cover bg-center pb-20">
+      <div className="full-bleed relative z-10 flex h-screen items-center bg-zinc-800 bg-[url(/img/opal-rebuild/hero-tadpole.webp)] bg-cover bg-center pb-20">
         <div className="mx-auto w-full max-w-5xl px-2 md:px-4">
           <h2 className="text-2xl text-white md:text-4xl">
             A new species
@@ -76,15 +76,15 @@ function App() {
       </div>
 
       <ParallaxImage
-        smallImage="/image-1.webp"
-        largeImage="/image-2.webp"
+        smallImage="/img/opal-rebuild/image-1.webp"
+        largeImage="/img/opal-rebuild/image-2.webp"
         smallImageSide="left"
         parallaxDistance="100%"
       />
 
       <ParallaxImage
-        smallImage="/image-1.webp"
-        largeImage="/image-2.webp"
+        smallImage="/img/opal-rebuild/image-1.webp"
+        largeImage="/img/opal-rebuild/image-2.webp"
         smallImageSide="right"
         parallaxDistance="100%"
       />
